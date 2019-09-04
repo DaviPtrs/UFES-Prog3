@@ -6,23 +6,25 @@
 
 using namespace std;
 
-class itemPedido{
+class ItemPedido{
     private:
         int quantidade;
         float precoVenda;
         Produto *produto;
 
     public:
-        static int qtdProdutos;
         //Construtor e destrutor
-        itemPedido(int quantidade, float precoVenda, Produto *podruto);
-        ~itemPedido();
+        ItemPedido(int quantidade, float precoVenda, Produto *podruto);
+        ~ItemPedido();
         //
         //Getters e Setters
 		int getQuantidade();
 		void setQuantidade(int quantidade);
 		float getPrecoVenda();
 		void setPrecoVenda(float precoVenda);
+        void addItem(Produto *produto);
+        void delItem(Produto *produto);
+        int getCodigoItem();
         //
 
 };

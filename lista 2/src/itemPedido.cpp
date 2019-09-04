@@ -1,10 +1,10 @@
 #include <string>
 #include <iostream>
-#include "../include/itemPedido.h"
+#include "../include/ItemPedido.h"
 
 using namespace std;
 
-itemPedido::itemPedido(int quantidade, float precoVenda, Produto *podruto){
+ItemPedido::ItemPedido(int quantidade, float precoVenda, Produto *podruto){
     this->quantidade = quantidade;
     this->precoVenda = precoVenda;
     this->produto = podruto;
@@ -15,23 +15,35 @@ itemPedido::itemPedido(int quantidade, float precoVenda, Produto *podruto){
     << "Valor de venda: " << precoVenda << endl;
 }
 
-itemPedido::~itemPedido(){
+ItemPedido::~ItemPedido(){
     cout << "Pedido Deletado! Item: " << this->produto->getNome() 
     << "(id.: " << this->produto->getCodigo() << ")" << endl;
 }
 
-int itemPedido::getQuantidade() {
+int ItemPedido::getQuantidade() {
 		return this->quantidade;
 }
 
-void itemPedido::setQuantidade(int quantidade) {
+void ItemPedido::setQuantidade(int quantidade) {
     this->quantidade = quantidade;
 }
 
-float itemPedido::getPrecoVenda() {
+float ItemPedido::getPrecoVenda() {
     return this->precoVenda;
 }
 
-void itemPedido::setPrecoVenda(float precoVenda) {
+void ItemPedido::setPrecoVenda(float precoVenda) {
     this->precoVenda = precoVenda;
+}
+
+void ItemPedido::addItem(Produto *produto){
+    this->quantidade++;
+}
+
+void ItemPedido::delItem(Produto *produto){
+    this->quantidade--;
+}
+
+int ItemPedido::getCodigoItem(){
+    return this->produto->getCodigo();
 }
