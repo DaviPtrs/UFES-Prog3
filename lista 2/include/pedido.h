@@ -1,9 +1,11 @@
 #include <string>
 #include <iostream>
+#include <vector>
+#include <ctime>
+#include "funcionario.h"
 #ifndef _PEDIDO_H
 #define _PEDIDO_H
-#include <ctime>
-#include "itemPedido.h"
+#include "itemPedido.h"  
 
 using namespace std;
 
@@ -13,12 +15,13 @@ class Pedido{
         tm data;
         string status;
         string formaPgto;
-        vector<ItemPedido *> items;
-
-
+        vector <ItemPedido *> items;
+        Funcionario *funcionario;
+        
     public:
+        static int qtdPedidos;
         //Construtor e destrutor
-        Pedido(int quantidade, float precoVenda, Produto *podruto);
+        Pedido(vector <ItemPedido *> items, Funcionario *funcionario, int valorTotal, string formaPgto);
         ~Pedido();
         //
         //Getters e Setters
@@ -31,10 +34,12 @@ class Pedido{
         string getFormaPgto();
         void setFormaPgto(string formaPgto);
         void addItemPedido(ItemPedido *itemPedido);
-        void delItemPedido(int codigo);
+        void rmItemPedido(int codigo);
+        void setFuncionario(Funcionario *funcionario);
+        Funcionario *getFuncionario();
+        void Pago();
+        void Entregue();
         //
-
 };
-
 
 #endif

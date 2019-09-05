@@ -11,10 +11,9 @@ class ItemPedido{
         int quantidade;
         float precoVenda;
         Produto *produto;
-
     public:
         //Construtor e destrutor
-        ItemPedido(int quantidade, float precoVenda, Produto *podruto);
+        ItemPedido(int quantidade, Produto *podruto);
         ~ItemPedido();
         //
         //Getters e Setters
@@ -24,7 +23,10 @@ class ItemPedido{
 		void setPrecoVenda(float precoVenda);
         void addItem(Produto *produto);
         void delItem(Produto *produto);
-        int getCodigoItem();
+        void setProduto(Produto *produto);
+        Produto *getProduto();
+        void attPrecoVenda();
+        void printItem();
         //
 
 };

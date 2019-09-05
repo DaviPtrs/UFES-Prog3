@@ -1,6 +1,7 @@
 #include <iostream>
 #include <vector>
 #include "include/itemPedido.h"
+// #include "include/funcionario.h"
 
 using namespace std;
 
@@ -21,6 +22,7 @@ int main(){
     for(int i = 0; i < produtos.size(); i++){
         delete produtos[i];
     }
-
+    // Funcionario *f = new Funcionario("davi", {0,0,0,0,0,0}, "321", "321", "321", "321", "321", "321" );
+    // f->getCPF();
     return 0;
 }

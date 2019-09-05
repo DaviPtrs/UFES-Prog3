@@ -1,13 +1,13 @@
 #include <string>
 #include <iostream>
-#include "../include/ItemPedido.h"
+#include "../include/itemPedido.h"
 
 using namespace std;
 
-ItemPedido::ItemPedido(int quantidade, float precoVenda, Produto *podruto){
+ItemPedido::ItemPedido(int quantidade, Produto *podruto){
     this->quantidade = quantidade;
-    this->precoVenda = precoVenda;
     this->produto = podruto;
+    this->attPrecoVenda();
 
     cout << "Pedido criado! Item: " << podruto->getNome() 
     << "(id.: " << podruto->getCodigo() << ")" << endl <<
@@ -38,12 +38,28 @@ void ItemPedido::setPrecoVenda(float precoVenda) {
 
 void ItemPedido::addItem(Produto *produto){
     this->quantidade++;
+    this->attPrecoVenda();
 }
 
 void ItemPedido::delItem(Produto *produto){
     this->quantidade--;
+    this->attPrecoVenda();
 }
 
-int ItemPedido::getCodigoItem(){
-    return this->produto->getCodigo();
+void ItemPedido::setProduto(Produto *produto){
+    this->produto = produto;
 }
+Produto *ItemPedido::getProduto(){
+    return this->produto;
+}
+
+void ItemPedido::attPrecoVenda(){
+    this->precoVenda = this->produto->getPrecoBase() * this->quantidade;
+}
+
+//parei aqui
+// void ItemPedido::printItem(){
+//     cout << "Codigo: " << this->produto->getCodigo() << endl;
+//     cout << "Nome: " << this->produto->getNome() << endl;
+
+// }

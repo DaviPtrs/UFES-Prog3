@@ -12,8 +12,6 @@ class Produto{
         string descricao;
         int quantidadeEstoque;
         float precoBase;
-        
-
     public:
         static int qtdProdutos;
         //Construtor e destrutor
