@@ -63,6 +63,15 @@ void Pedido::setFormaPgto(string formaPgto) {
 }
 
 void Pedido::addItemPedido(ItemPedido *itemPedido){
+    int codigo = itemPedido->getProduto()->getCodigo(); // pega o codigo do produto a ser inserido
+    vector <ItemPedido *> x;
+    x = this->items;
+    for(int i = 0; i < x.size(); i++){
+        if(x[i]->getProduto()->getCodigo() == codigo){
+            x[i]->addItem();
+            break;
+        }
+    }
     this->items.push_back(itemPedido);
 }
 

@@ -21,8 +21,8 @@ class ItemPedido{
 		void setQuantidade(int quantidade);
 		float getPrecoVenda();
 		void setPrecoVenda(float precoVenda);
-        void addItem(Produto *produto);
-        void delItem(Produto *produto);
+        void addItem();
+        void delItem();
         void setProduto(Produto *produto);
         Produto *getProduto();
         void attPrecoVenda();

@@ -36,12 +36,12 @@ void ItemPedido::setPrecoVenda(float precoVenda) {
     this->precoVenda = precoVenda;
 }
 
-void ItemPedido::addItem(Produto *produto){
+void ItemPedido::addItem(){
     this->quantidade++;
     this->attPrecoVenda();
 }
 
-void ItemPedido::delItem(Produto *produto){
+void ItemPedido::delItem(){
     this->quantidade--;
     this->attPrecoVenda();
 }
