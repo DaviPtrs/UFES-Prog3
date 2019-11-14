@@ -14,6 +14,11 @@ public class Grupo {
     ArrayList<Usuario> participantes;
 
     Grupo(){}
+    Grupo(String nome, Categoria categoria, Usuario admin){
+        this.nome = nome;
+        this.categoria = categoria;
+        this.admin = admin;
+    }
 
     /**
      * @param p participante a ser adicionado
@@ -37,7 +42,11 @@ public class Grupo {
      * @param categoria the categoria to set
      */
     public void setCategoria(Categoria categoria) {
+        if(this.categoria != null){
+            this.categoria.rmGrupo(this);
+        }
         this.categoria = categoria;
+        this.categoria.addGrupo(this);
     }
     /**
      * @param idadeMinPaginaDias the idadeMinPaginaDias to set

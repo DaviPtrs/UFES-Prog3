@@ -8,13 +8,23 @@ import java.util.ArrayList;
  */
 public class Usuario {
     protected String nome;
-    protected String id;
+    protected int id;
     protected Date data;
+    protected ArrayList<Publicacao> posts;
+    protected ArrayList<Usuario> seguidores;
+    protected ArrayList<Grupo> grupos;
     public static int qtdUsuarios;
-    ArrayList<Publicacao> posts;
-    ArrayList<Usuario> seguidores;
 
-    Usuario(){}
+    public Usuario(){
+        qtdUsuarios++;
+    }
+
+    public Usuario(String nome, int id, Date data){
+        this.nome = nome;
+        this.id = id;
+        this.data = data;
+        qtdUsuarios++;
+    }
 
     /**
      * @param data the data to set
@@ -26,7 +36,7 @@ public class Usuario {
     /**
      * @param id the id to set
      */
-    public void setId(String id) {
+    public void setId(int id) {
         this.id = id;
     }
 
@@ -51,7 +61,7 @@ public class Usuario {
     /**
      * @return the id
      */
-    public String getId() {
+    public int getId() {
         return id;
     }
     /**
@@ -65,5 +75,23 @@ public class Usuario {
      */
     public static int getQtdUsuarios() {
         return qtdUsuarios;
+    }
+
+    public void addGrupo(Grupo g){
+        g.addParticipante(this);
+        this.grupos.add(g);
+    }
+
+    public void unAddGrupo(Grupo g){
+        g.rmParticipante(this);
+        this.grupos.remove(g);
+    }
+    
+    public void addPost(Publicacao p){
+        this.posts.add(p);
+    }
+
+    public void detachPost(Publicacao p){
+        this.posts.remove(p);
     }
 }
