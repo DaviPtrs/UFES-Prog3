@@ -2,6 +2,8 @@ package app;
 
 import java.util.Date;
 
+import app.Usuario;
+
 public class App {
     public static void main(String[] args) throws Exception {
         RedeSocial foicebook = new RedeSocial("foicebook");
@@ -10,10 +12,10 @@ public class App {
 
         for(int i = 0; i<5; i++){
             String nomeUser = nomesUsers[i];
+            String nomeGrupo = nomesGrupos[i];
             int id = i;
             Date data = new Date();
-            Usuario user = new Usuario(nomeUser, id, data);
-            // foicebook.addUsuario();
+            foicebook.addUsuario(new Usuario(nomeUser, id, data));
         }
     }
 }
